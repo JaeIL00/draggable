@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import Beautiful from "./components/Beautiful";
 
 const App = () => {
   // 접속 기기 확인
@@ -10,29 +11,34 @@ const App = () => {
   };
 
   // Draggable
-  let [dragValue, setDragValue] = useState<any>();
-  const element = useRef() as React.RefObject<HTMLDivElement>;
+  // let [dragValue, setDragValue] = useState<any>();
+  // const element = useRef() as React.RefObject<HTMLDivElement>;
 
-  const realMove = () => {
-    element.current!.style.position = "absolute";
-    element.current!.onmousedown = () => {
-      setDragValue(element.current);
-    };
-  };
+  // const realMove = () => {
+  //   element.current!.style.position = "absolute";
+  //   element.current!.onmousedown = () => {
+  //     setDragValue(element.current);
+  //   };
+  // };
 
-  document.onmousemove = (event) => {
-    let x = event.pageX;
-    let y = event.pageY;
+  // document.onmousemove = (event) => {
+  //   let x = event.pageX;
+  //   let y = event.pageY;
 
-    dragValue.style.left = x + "px";
-    dragValue.style.top = y + "px";
-  };
-  document.onmouseup = () => {
-    setDragValue(null);
-  };
+  //   dragValue.style.left = x + "px";
+  //   dragValue.style.top = y + "px";
+  // };
+  // document.onmouseup = () => {
+  //   setDragValue(null);
+  // };
 
   if (!isMobile()) {
-    return <Ball ref={element} onMouseDown={realMove}></Ball>;
+    return (
+      <>
+        {/* <Beautiful />; */}
+        {/* <Ball ref={element} onMouseDown={realMove}></Ball>;   */}
+      </>
+    );
   } else <div>PC로 접속해주세요</div>;
 };
 
